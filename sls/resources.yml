@@ -1,0 +1,20 @@
+Resources:
+  DonutsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: senderId
+          KeyType: HASH
+        - AttributeName: createdAt
+          KeyType: RANGE
+      AttributeDefinitions:
+        - AttributeName: senderId
+          AttributeType: S
+        - AttributeName: createdAt
+          AttributeType: S
+      Tags:
+        - Key: Environment
+          Value: ${self:custom.stage}
+        - Key: Name
+          Value: Donuts-Table

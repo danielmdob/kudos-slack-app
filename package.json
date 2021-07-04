@@ -1,0 +1,44 @@
+{
+  "name": "kudos-slack-app-backend",
+  "version": "1.0.0",
+  "description": "Kudos Slack App Serverless backend.",
+  "main": "handler.js",
+  "scripts": {
+    "sls": "sls",
+    "lint": "eslint ./src --ext js,ts --cache --fix",
+    "prettier": "prettier --list-different './src/**/*.{js,ts}'",
+    "typecheck": "tsc --noEmit",
+    "package": "sls package"
+  },
+  "dependencies": {
+    "@aws/dynamodb-data-mapper": "^0.7.3",
+    "@aws/dynamodb-data-mapper-annotations": "^0.7.3",
+    "@slack/web-api": "^6.2.4",
+    "luxon": "^1.26.0",
+    "source-map-support": "^0.5.10",
+    "tslog": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.17",
+    "@types/luxon": "^1.26.2",
+    "@types/node": "^10.12.18",
+    "@typescript-eslint/eslint-plugin": "^4.14.0",
+    "@typescript-eslint/parser": "^4.14.0",
+    "aws-sdk": "^2.831.0",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.18.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "fork-ts-checker-webpack-plugin": "^3.0.1",
+    "prettier": "^2.2.1",
+    "serverless": "2.4.0",
+    "serverless-iam-roles-per-function": "^3.1.0",
+    "serverless-webpack": "^5.2.0",
+    "ts-loader": "^8.0.14",
+    "tsconfig-paths-webpack-plugin": "^3.5.1",
+    "typescript": "^4.1.3",
+    "webpack": "^4.29.0",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "license": "MIT"
+}

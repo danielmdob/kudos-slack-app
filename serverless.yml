@@ -1,0 +1,28 @@
+frameworkVersion: '2'
+service:
+  name: kudos-slack-app-backend
+
+plugins:
+  - serverless-webpack
+  - serverless-iam-roles-per-function
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: us-east-1
+  stage: dev
+  environment:
+    ENV: ${env:ENV}
+    AWS_NODEJS_CONNECTION_REUSE_ENABLED: "1"
+
+custom:
+  stage: ${opt:stage, self:provider.stage}
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules: true
+
+functions:
+  - ${file(sls/functions.yml)}
+
+resources:
+  - ${file(sls/resources.yml)}

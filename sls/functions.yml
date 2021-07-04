@@ -1,0 +1,15 @@
+awardDonut:
+  handler: src/donuts/handlers.awardDonut
+  environment:
+    DONUTS_TABLE: !Ref DonutsTable
+    SLACK_BOT_TOKEN: ${env:SLACK_BOT_TOKEN}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:PutItem
+        - dynamodb:Query
+      Resource: !GetAtt DonutsTable.Arn
+  events:
+    - http:
+        method: post
+        path: donuts
